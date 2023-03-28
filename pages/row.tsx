@@ -1,10 +1,10 @@
 import { type } from "os";
 import React, { useState, useRef } from "react";
-import { Movie } from "../../utilities/types";
-import { capitalizeFirstLetter } from "../../utilities/utilities";
 import SingleMovieCard from "./singleMovieCard";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
+import { capitalizeFirstLetter } from "../utilities/utilities";
+import { Movie } from "../utilities/types";
 
 type propsType = {
   movieCategory: any;

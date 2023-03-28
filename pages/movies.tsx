@@ -1,6 +1,5 @@
 import React from "react";
-import useStorage from "../../hooks/useStorage";
-import { Movie, MoviePropsType } from "../../utilities/types";
+import useStorage from "../hooks/useStorage";
 import Row from "./row";
 
 type propsType = {

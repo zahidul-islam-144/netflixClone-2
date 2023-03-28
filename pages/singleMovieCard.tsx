@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Movie } from "../../utilities/types";
+import { Movie } from "../utilities/types";
 
 type propsType = {
   singleMovieCard: Movie;
