@@ -1,6 +1,6 @@
 # NetFlix Clone
 
-### Technologi used: 
+### Technology used: 
 1. Next Js
 2. TypeScript
 3. React Context API
