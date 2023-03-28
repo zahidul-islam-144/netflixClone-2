@@ -1,4 +1,4 @@
-import { type } from "os";
+// import { type } from "os";
 import React, { useState, useRef } from "react";
 import SingleMovieCard from "./singleMovieCard";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
