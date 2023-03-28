@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+// all custom component's css is written inside components layer
+@layer components {
+  header {
+    @apply fixed w-full top-0 z-10 flex items-center justify-between px-4 lg:px-10 py-2 xs:py-2 sm:py-4 md:py-2 lg:py-2 xl:py-2 transition-all;
+
+    .left_side {
+      @apply flex items-center space-x-10;
+
+      ul {
+        @apply hidden xs:hidden sm:flex md:flex lg:flex space-x-6;
+        // xl:flex 2xl:flex
+        .nav_link_menu {
+          @apply cursor-pointer text-lg font-medium text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3];
+        }
+      }
+    }
+
+    .right_side {
+      @apply flex items-center space-x-4;
+
+      .search_icon,
+      .bell_icon {
+        @apply hidden text-white h-6 w-6 cursor-pointer transition duration-[.4s] hover:text-[#b3b3b3] md:inline;
+      }
+
+      .kids_title {
+        @apply hidden cursor-pointer text-lg font-medium text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3] md:inline;
+      }
+    }
+  }
+}

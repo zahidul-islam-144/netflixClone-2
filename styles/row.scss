@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer components {
+  .row_wrapper {
+    @apply h-auto w-full overflow-hidden;
+
+    .movieTitle {
+      @apply mb-1 font-semibold text-[#e5e5e5] transition duration-200 hover:text-white cursor-pointer text-sm xs:text-base sm:text-lg md:text-lg lg:text-xl xl:text-2xl;
+    }
+
+    .rowElementWrapper {
+      @apply h-auto w-full relative;
+
+      .rowSlider {
+        @apply absolute w-[3.5vw] h-full top-0 bottom-0 text-sm cursor-pointer bg-[#00000070] m-auto;
+
+        &.leftArrow {
+          @apply left-0 z-10;
+        }
+
+        &.rightArrow {
+          @apply right-0;
+        }
+      }
+
+      .rowBlock {
+        @apply flex space-x-2 overflow-x-scroll scrollbar-hide overflow-hidden;
+      }
+    }
+  }
+}
+

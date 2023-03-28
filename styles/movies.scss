@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer components {
+  section.rowContainer {
+    @apply h-auto w-full relative mt-[42%] xs:mt-[35%] sm:mt-[35%] md:mt-[40%] lg:mt-[42%] text-white py-5 pl-9 md:pl-12 lg:pl-12 ml-[-9] md:ml-[-12] lg:ml-[-12] space-y-4;
+  }
+}
+// border-white border

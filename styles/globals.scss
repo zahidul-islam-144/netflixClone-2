@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@import "./topHeader.scss";
+@import "./banner.scss";
+@import "./movies.scss";
+@import "./row.scss";
+@import "./singleMovieCard.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 0.6em;
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(38, 37, 37, 0.594);
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #141414;
+  outline: 1px solid #141414;
+  border-radius: 8px;
+  box-shadow: inset 0 0 6px rgba(98, 97, 97, 0.863);
+}
+
+/* html, body, header, h1-h6, p etc all html tags are written inside base layer */
+@layer base {
+  body {
+    @apply font-sans bg-[#141414] h-screen text-[#e5e5e5];
+  }
+}
+
+// @layer components {
+//   .home_mainContainer{
+//     @apply top-0 left-0 relative;
+//   }
+// }

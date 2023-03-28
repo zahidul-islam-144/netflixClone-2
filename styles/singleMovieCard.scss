@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer components {
+  .singleMovieCard {
+    @apply max-h-56;
+
+    .cardImageBlock {
+      @apply h-20 xs:h-24 sm:h-28 md:h-44 lg:h-56 xl:h-60 min-h-fit w-[11vw] xs:w-[12vw] sm:w-[10vw] md:w-[13.5vw] lg:w-[13.5vw] xl:w-[15vw] cursor-pointer overflow-hidden relative;
+
+      .cardImage {
+        @apply h-full w-full object-cover hover:scale-[1.08] ease-in duration-500;
+      }
+    }
+  }
+}

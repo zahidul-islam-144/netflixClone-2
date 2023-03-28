@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  button {
+    @apply py-1 xs:py-1 sm:py-2 md:py-2 lg:py-2 px-4 xs:px-5 sm:px-7 md:px-7 lg:px-8 odd:bg-[#e4e8f5] odd:hover:opacity-75 odd:text-[#000000] even:bg-[#27191e97] rounded-md flex justify-center items-center gap-x-3 transition duration-[.4s] font-semibold text-sm md:text-lg lg:text-lg hover:bg-[#e4e8f5] even:hover:text-[#000000];
+
+    .btnIcon {
+      @apply text-sm xs:text-sm sm:text-lg md:text-2xl lg:text-2xl;
+    }
+  }
+}
+
+@layer components {
+  section.banner_main_section {
+    @apply flex flex-col justify-end absolute top-0 left-0 right-0;
+
+    .bannerImageBlock {
+      @apply relative top-0 h-auto;
+
+      .gradientBlock {
+        @apply absolute bottom-0 h-[50%] w-full bg-gradient-to-t from-[#141415] to-[#14141406] bg-transparent;
+      }
+    }
+
+    .bannerContentBlock {
+      @apply h-auto max-w-xs xxs:max-w-xs xs:max-w-lg sm:max-w-xl md:max-w-xl lg:max-w-2xl xl:max-w-2xl 2xl:max-w-2xl absolute top-0 left-0 flex flex-col justify-end pl-9 md:pl-12 lg:pl-12 mt-[16%] xs:mt-[13%] sm:mt-[13%] md:mt-[13%] lg:mt-[13%] xl:mt-[15%] space-y-2 md:space-y-4 lg:space-y-4;
+
+      h1 {
+        @apply font-bold text-[4vw];
+        // text-2xl sm:text-2xl md:text-4xl lg:text-7xl
+      }
+
+      .movieOverview {
+        @apply text-[2.20vw] xs:text-[2.25vw] sm:text-[2vw] md:text-[1.68vw] lg:text-[1.68vw];
+        // text-sm md:text-lg lg:text-2xl
+      }
+
+      .btnBlock {
+        @apply flex items-center gap-x-4;
+      }
+    }
+  }
+}
