@@ -5,10 +5,10 @@ import TopHeader from "../components/TopHeader";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 import { Movie, MoviePropsType, ObjType, UriType } from "../utilities/types";
-import Banner from "./banner";
+import Banner from "../components/banner";
 import { useFetchMovies } from "../hooks/useFetchMovies";
 import useStorage from "../hooks/useStorage";
-import Movies from "./movies";
+import Movies from "../components/movies";
 
 const Home = ({ netflixOriginals, movieObjects }: MoviePropsType) => {
   const { setMovieObjects } = useStorage();

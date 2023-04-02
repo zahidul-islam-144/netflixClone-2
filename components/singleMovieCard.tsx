@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Movie } from "../utilities/types";
 
@@ -7,14 +7,20 @@ type propsType = {
 };
 
 const SingleMovieCard = ({ singleMovieCard }: propsType) => {
+  const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
   const baseURL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
   const imageSrc = `${baseURL}${
     singleMovieCard?.backdrop_path || singleMovieCard?.poster_path
   }`;
 
+const handleHoverCard = () => {
+  setTimeout(() => {
+    setIsMouseOver(true);
+  }, 800);
+}
   return (
-    <div className="singleMovieCard">
-      <div className="cardImageBlock">
+    <div className="singleMovieCard" onMouseLeave={()=> setIsMouseOver(false)}>
+      <div className={`cardImageBlock ${isMouseOver ? 'mouseOver':'cardImageBlock'}`}>
         <Image
           src={imageSrc}
           alt={`Image of ${

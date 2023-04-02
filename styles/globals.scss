@@ -8,6 +8,8 @@
 @import "./movies.scss";
 @import "./row.scss";
 @import "./singleMovieCard.scss";
+@import "./login.scss";
+@import "./Modal.scss";
 
 * {
   box-sizing: border-box;
@@ -17,7 +19,7 @@
 }
 
 *::-webkit-scrollbar {
-  width: 0.6em;
+  width: 0.4em;
 }
 
 *::-webkit-scrollbar-track {

@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+
+
+@layer base {
+    .authBlock {
+        h1{
+            @apply text-[#F9FCFC] font-semibold text-2xl;
+        }
+        form {
+            @apply flex justify-center items-center flex-col mt-10;
+        }
+
+       form > input, button {
+            @apply block m-2 h-10 w-full rounded border-none outline-none;
+        }
+      form > input {
+            @apply px-3 py-2 text-[#F9FCFC] bg-[#333333] placeholder-[#959498] xxs:rounded-3xl;
+        }
+       form > button {
+            @apply mt-6 bg-[#E40912] text-[#F9FCFC] font-semibold flex justify-center items-center xxs:rounded-3xl;
+        }
+        .rememberMe {
+            input {
+                @apply cursor-pointer mt-5;
+            }
+        }
+
+        .signUpBlock{
+            h3{
+                @apply text-[#F9FCFC];
+            }
+        }
+    }
+}
+
+@layer components {
+    .loginBanner_main {
+        @apply relative h-screen w-screen flex justify-center items-center;
+
+        .bannerBlock {
+            @apply relative h-full w-full opacity-70 ;
+        }
+
+        .authBlock {
+            @apply absolute h-[30rem] xxs:h-[30rem] xs:h-[35rem] sm:h-[35rem] max-h-[95vh] w-[25rem] xxs:w-[18.5rem] xs:w-[25rem] sm:w-[25rem] max-w-[25rem] bg-[#000000c5] px-7 pt-7 rounded-sm;
+
+            .signUpBlock{
+                @apply flex justify-start items-center space-x-2 bottom-6 absolute;
+
+                a{
+                    @apply text-blue-500 hover:underline;
+                }
+            }
+        }
+    }
+}

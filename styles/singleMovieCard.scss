@@ -13,6 +13,9 @@
       .cardImage {
         @apply h-full w-full object-cover hover:scale-[1.08] ease-in duration-500;
       }
+      &.mouseOver {
+        @apply h-80 w-[18vw] transition-all ease-in-out duration-[30ms]
+      }
     }
   }
 }

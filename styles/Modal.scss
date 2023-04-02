@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer components {
+    .onHoverModal {
+        @apply h-80 w-52 bg-slate-600;
+    }
+}
