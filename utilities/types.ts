@@ -7,6 +7,9 @@ export interface ObjType {
 export interface NavLinkType {
   [key: string]: string; // dynamically setting types for key and key_value and to set object key-value pair
 }
+export interface formInputType {
+  [key: string]: string|any; // dynamically setting types for key and key_value and to set object key-value pair
+}
 
 export interface UriType {
   movieType?: string | any;

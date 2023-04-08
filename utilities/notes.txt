@@ -1,3 +1,11 @@
+/*
+
+All the codes are kept as a backup in this textFile for further purposes(hints and tricks) to avoid complexity if needed.
+
+*/
+
+
+
 // import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -136,3 +144,111 @@ export const getServerSideProps = async (context:any) => {
   };
 
 */
+
+
+============>
+login:alternative
+
+import React, { Dispatch, SetStateAction, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+// import { Value } from "sass";
+
+// interface HTMLProps<T> extends HTMLAttributes, ClassAttributes<T> {
+// }
+type inputTypes = {
+  phn_email?: string | null;
+  password?: string | null;
+  // formInput: String | any,
+  // setFormInput: Dispatch<SetStateAction<object|any>>
+};
+
+const Login = () => {
+  const [formInput, setFormInput] = useState<inputTypes>({
+    phn_email: '',
+    password: '',
+  });
+
+  const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
+    const { name, value } = e.target as HTMLInputElement;
+    setFormInput((prevInput)=> ({ ...prevInput, [name]: value }))
+    // setFormInput({...formInput, [name]: value });
+  };
+  console.log("💛formInput", formInput);
+  return (
+    <div className="loginBanner_main">
+      <div className="bannerBlock">
+        <Image
+          src="/../public/images/netflix-loginBanner.jpg"
+          alt="loginBannerImage"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          loading="lazy"
+        />
+      </div>
+
+      <div className="authBlock">
+        <h1>Sign In</h1>
+        <form>
+          <input
+            type="text"
+            placeholder="Email or Phone Number"
+            name="phn_email"
+            value={formInput.phn_email || ""}
+            onChange={handleInput}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={formInput.password || ""}
+            onChange={handleInput}
+          />
+          <button>Sign In</button>
+        </form>
+
+        <div className="formBottomBlock">
+          <div className="rememberMe">
+            <input type="checkbox" id="remember" name="remember" value="Bike" />
+            <label htmlFor="remember"> Remember me.</label>
+          </div>
+
+          <div className="forgotPassword">
+            <Link href="#">Forgot password?</Link>
+          </div>
+        </div>
+
+        <div className="signUpBlock">
+          <h3>New to Netflix?</h3>
+          <Link href="#">Sign up</Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
+
+========
+
+const styles: { [key: string]: React.CSSProperties } = {
+  checkbox: {
+    margin: "10px 0",
+    padding: "14px 25px",
+    backgroundColor: "rgb(238 237 247)",
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  button: {
+    marginTop: 15,
+    color: "#ffffff",
+    width: "100%",
+    cursor: "pointer",
+    padding: "15px 30px",
+    border: "none",
+    fontWeight: "bold",
+    backgroundColor: "red",
+  },
+}

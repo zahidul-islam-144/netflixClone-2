@@ -31,7 +31,10 @@
 
         .signUpBlock{
             h3{
-                @apply text-[#F9FCFC];
+                @apply text-[#737270];
+            }
+            a {
+                @apply text-[#F9FCFC] hover:underline;
             }
         }
     }
@@ -48,12 +51,16 @@
         .authBlock {
             @apply absolute h-[30rem] xxs:h-[30rem] xs:h-[35rem] sm:h-[35rem] max-h-[95vh] w-[25rem] xxs:w-[18.5rem] xs:w-[25rem] sm:w-[25rem] max-w-[25rem] bg-[#000000c5] px-7 pt-7 rounded-sm;
 
+            .formBottomBlock{
+                @apply flex justify-between items-center text-[#737270];
+
+                .forgotPassword{
+                    @apply flex justify-center items-center hover:underline hover:text-[#F9FCFC] mt-3;
+                }
+            }
+
             .signUpBlock{
                 @apply flex justify-start items-center space-x-2 bottom-6 absolute;
-
-                a{
-                    @apply text-blue-500 hover:underline;
-                }
             }
         }
     }
