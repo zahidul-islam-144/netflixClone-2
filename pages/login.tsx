@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,11 +9,15 @@ import FormInputComponent from "../components/sharedComponent/FormInputComponent
 import CheckBox from "../components/sharedComponent/CheckBox";
 
 const Login = () => {
-  const { inputValues, handleInputs, handleSubmit, handleCheckBox, isLoading, checkboxValue } =
-    useForm();
+  const {
+    inputValues,
+    handleInputs,
+    handleSubmit,
+    handleCheckBox,
+    isLoading,
+    checkboxValue,
+  } = useForm();
 
-    console.log("💛checkboxValue:login (page)", checkboxValue);
-    console.log("💛inputValues:login (page)", inputValues);
   return (
     <div className="loginBanner_main">
       <div className="bannerBlock">
@@ -50,19 +54,18 @@ const Login = () => {
 
         <div className="formBottomBlock">
           <div className="rememberMe">
-            {
-              checkLists.map((list,i)=>
+            {checkLists.map((list, i) => (
               <>
                 <CheckBox
                   isChecked={checkboxValue}
-                  type='checkbox'
-                  id='1'
+                  type="checkbox"
+                  id="1"
                   label={list.name}
                   onChange={handleCheckBox}
                 />
-                 <span className=""> {list?.title}</span> 
-              </>)
-            }
+                <span className=""> {list?.title}</span>
+              </>
+            ))}
           </div>
 
           <div className="forgotPassword">

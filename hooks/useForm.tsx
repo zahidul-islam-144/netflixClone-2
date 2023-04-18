@@ -6,11 +6,15 @@ type inputTypes = {
 };
 
 type checkBoxType = {
-    rememberMe: boolean|any;
+  rememberMe: boolean | any;
 };
 
 type loadingType = {
   isLoading: boolean;
+};
+
+type submitDataType = {
+  submittedData: any;
 };
 
 const initialData = {
@@ -20,10 +24,13 @@ const initialData = {
 
 export const useForm = () => {
   const [inputValues, setInputValues] = useState<inputTypes | any>(initialData);
-  const [checkboxValue, setCheckBoxValue] = useState(false)
+  const [checkboxValue, setCheckBoxValue] = useState(false);
+  const [submittedData, setSubmittedData] = useState<submitDataType>({
+    submittedData: null,
+  });
   const [isLoading, setIsLoading] = useState<loadingType>({ isLoading: true });
 
-  const hasWindow = typeof window !== 'undefined'
+  const hasWindow = typeof window !== "undefined";
 
   const resetForm = () => {
     setInputValues({
@@ -39,15 +46,14 @@ export const useForm = () => {
 
 */
     const { name, value } = e.target as HTMLInputElement;
+
     setInputValues((prevInputs: any) => ({ ...prevInputs, [name]: value }));
-    console.log("💛inputValues:useForm (customHook):", inputValues);
   };
 
   const handleCheckBox = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { checked, value, name } = e.target;
-    setCheckBoxValue((prchecked)=> checked);
-    
-    console.log("💛checkboxValue:useForm (customHook):", checkboxValue);
+
+    setCheckBoxValue((prev) => checked);
   };
 
   // for OnClick::  React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -60,11 +66,15 @@ export const useForm = () => {
       phn_email: phn_email,
       password: password,
     };
+    setSubmittedData({ submittedData: submittedData });
     resetForm();
     setIsLoading({ isLoading: false });
-    console.log("💛submittedData:", submittedData);
     // resetForm.reset();
   };
+
+  console.log("💛checkboxValue:useForm (customHook):", checkboxValue);
+  console.log("💛inputValues:useForm (customHook):", inputValues);
+  console.log("💛submittedData:", submittedData);
 
   return {
     inputValues,

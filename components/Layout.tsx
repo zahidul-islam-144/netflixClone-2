@@ -8,14 +8,21 @@ type childrenType = {
 };
 
 const Layout = ({ children }: childrenType) => {
-  return false ? (
+  // return false ? (
+  //   <>
+  //     <TopHeader />
+  //     <main>{children}</main>
+  //     {/* <Footer/> */}
+  //   </>
+  // ) : (
+  //   <Login />
+  // );
+  return (
     <>
       <TopHeader />
       <main>{children}</main>
       {/* <Footer/> */}
     </>
-  ) : (
-    <Login />
   );
 };
 

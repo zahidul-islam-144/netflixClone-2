@@ -20,16 +20,10 @@ const CheckBox: React.FC<ICheckboxProps> = ({
   type,
   onChange,
 }: ICheckboxProps) => {
-    console.log("💛submittedData:", isChecked);
   return (
-    <label
-      className={isChecked ?'checkBox_active':'checkBox'}
-      htmlFor={id}
-    >
-      <span className="checkBox-Inner">
-        <span className="checkBox-Icon">
-         <TiTick className="text-white cursor-pointer"/>
-        </span>
+    <label className={isChecked ? "checkBox_active" : "checkBox"} htmlFor={id}>
+      <span className="checkBox_Inner">
+        <TiTick className="text-white cursor-pointer checkBox-Icon" />
         <input
           checked={isChecked}
           id={id}

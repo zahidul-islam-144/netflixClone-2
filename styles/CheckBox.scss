@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+
+@layer components {
+    .checkBox {
+        @apply flex items-center transition-all duration-[0.15s] cursor-pointer mb-2;
+
+        &_Inner{
+            @apply flex justify-center items-center relative w-4 h-4 border-2 box-border bg-white transition-all duration-[0.15s]
+        }
+    }
+}
+
+
