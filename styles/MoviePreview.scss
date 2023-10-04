@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+// vote_average
+// overview
+
+@layer components {
+  .moviePreview_block {
+    @apply lg:h-[23rem] lg:w-[23rem] z-50 shadow-2xl shadow-black rounded-md absolute -top-32 bg-[#141414];
+
+
+    .video_player {
+      @apply lg:h-52 lg:w-full border border-white bg-slate-700;
+    }
+
+    .movie_content_block {
+      @apply text-blue-500 text-lg mx-0 bg-[#141414];
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface ObjType {
-  [key: string]: []; // dynamically setting types for key and key_value and to set object key-value pair
+  [key: string]: [] | number; // dynamically setting types for key and key_value and to set object key-value pair
 }
 
 export interface NavLinkType {
@@ -14,6 +14,7 @@ export interface formInputType {
 export interface UriType {
   movieType?: string | any;
   movieURL?: string | any;
+  movieID?: number | any;
 }
 
 export interface Movie {
@@ -55,10 +56,19 @@ export interface MoviePropsType {
   movieObjects: object | any;
 }
 
+export interface targetMovieObjectType {
+  id: string,
+  movieType: string
+}
 
-export interface ContextType {
+export interface ContextType extends targetMovieObjectType{
   movieObjects: object | any;
   setMovieObjects: Dispatch<SetStateAction<object|any>>;
   authData?: any;
   setAuthData: Dispatch<SetStateAction<any>>;
+  isOpen: boolean,
+  setIsOpen: Dispatch<SetStateAction<any>>;
+  targetMovie: targetMovieObjectType;
+  setTargetMovie: Dispatch<SetStateAction<any>>;
 }
+

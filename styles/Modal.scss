@@ -3,8 +3,93 @@
 @tailwind utilities;
 @tailwind variants;
 
+@layer base {
+  [aria-hidden="true"] {
+    display: none;
+  }
+
+  [aria-hidden="false"] {
+    display: block;
+  }
+
+  .disableCaret{
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+     user-select: none;       
+  }
+}
+
 @layer components {
-    .onHoverModal {
-        @apply h-80 w-52 bg-slate-600;
+  .modal_wrapper {
+    &.overlay {
+      @apply fixed z-10 overflow-y-scroll right-0 bottom-0 left-0 bg-[#000000c8];
+      //   bg-[rgba(40,40,40,.75)]
+      // bg-[#000000c8]
     }
+
+    // set modal center
+    .modal_main {
+      @apply flex justify-center items-center h-screen w-full top-10;
+
+      // modal
+      .modal_container {
+        @apply min-h-[200vh] max-w-[65vw] w-[65vw] ml-auto mr-auto bg-[#181818] rounded-md overflow-hidden flex flex-col shadow-black drop-shadow-lg absolute top-12 transition duration-300 delay-300 ease-in-out;
+
+        .close_btn {
+          @apply h-8 w-8 top-[22px] right-[25px] p-2 absolute z-10 rounded-full cursor-pointer bg-transparent flex justify-center items-center text-white font-normal bg-[#474444] text-2xl transition duration-300 delay-300 ease-in-out;
+
+          &:hover {
+            @apply border-2 border-white;
+          }
+        }
+
+        .modal_body {
+          .video_Player {
+            @apply h-[38%] min-h-[38%] max-h-[38%] w-full absolute;
+
+            &:after {
+              @apply content-[''] block absolute bg-gradient-to-t from-[#141414] to-transparent right-0 bottom-0 left-0 w-full pointer-events-none flex-shrink-0 p-9;
+            }
+
+            .modalImageBlock {
+              @apply h-full w-full relative overflow-hidden;
+
+              .modalImage {
+                @apply h-full w-full object-cover;
+              }
+            }
+          }
+
+          .modalContens{
+            @apply h-20 w-full absolute top-[43%] border border-white text-white;
+          }
+        }
+
+        // & > div {
+        //   @apply pt-4 pr-8 pb-4 pl-8;
+        // }
+
+        .modal_footer {
+          @apply w-full border-t-2 flex justify-end items-center space-x-2;
+
+          & > div {
+            @apply py-1 px-4 rounded-md cursor-pointer flex justify-center items-center;
+
+            &:first-child {
+              @apply bg-green-500;
+            }
+
+            &:last-child {
+              @apply bg-red-500 text-white;
+            }
+          }
+
+          &:after {
+            @apply content-[''] block absolute bg-gradient-to-t from-[#141414] to-transparent right-0 bottom-[65px] left-0 w-full pointer-events-none flex-shrink-0 p-9;
+          }
+        }
+      }
+    }
+  }
 }

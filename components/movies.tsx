@@ -8,13 +8,14 @@ type propsType = {
 
 const Movies = () => {
   const { movieObjects } = useStorage();
-  const arrayConvertedData = Object.entries(movieObjects);// converted to array-object
+  const arrayConvertedData = Object.entries(movieObjects);
+  // converted to array-object
 
   return (
     <section className="rowContainer">
-      {arrayConvertedData.map((data) => (
+      {arrayConvertedData.slice(0).map((data) => (
         <>
-          <Row movieCategory={data} />
+          <Row movies={data} />
         </>
       ))}
     </section>

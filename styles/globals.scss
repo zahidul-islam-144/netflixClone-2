@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
-
+@import "bootstrap/dist/css/bootstrap.min.css";
 @import "./topHeader.scss";
 @import "./banner.scss";
 @import "./movies.scss";
@@ -11,6 +7,13 @@
 @import "./login.scss";
 @import "./Modal.scss";
 @import "./CheckBox.scss";
+@import "./MoviePreview.scss";
+@import "./Modal.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
 
 * {
   box-sizing: border-box;
@@ -38,9 +41,22 @@
 /* html, body, header, h1-h6, p etc all html tags are written inside base layer */
 @layer base {
   body {
-    @apply font-sans bg-[#141414] h-screen text-[#e5e5e5];
+    @apply font-sans bg-[#141414] h-screen text-[#e5e5e5] w-full;
+
+    &.disabled_body_scroll{
+      @apply overflow-hidden;
+    }
   }
 }
+
+// @layer components {
+//   .home_mainContainer{
+//     .disabled_body_scroll{
+//       @apply overflow-y-hidden;
+//     }
+//   }
+// }
+
 
 // @layer components {
 //   .home_mainContainer{

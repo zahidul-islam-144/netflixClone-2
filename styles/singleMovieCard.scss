@@ -3,18 +3,117 @@
 @tailwind utilities;
 @tailwind variants;
 
+@layer base {
+  .singleMovieCard {
+    .moviePreview_block {
+      .previewContents {
+        .buttonsBlock {
+          div.play {
+            @apply bg-white;
+          }
+
+          div.myList,
+          div.reacts,
+          div.removed {
+            @apply bg-[#343131] border-2 border-[#787676] transition duration-150;
+
+            &:hover {
+              @apply border-white;
+            }
+          }
+
+          & > div {
+            @apply h-8 w-8 rounded-full m-1 flex justify-center items-center;
+          }
+
+          .reactsExpansion {
+            .reacts2 {
+              & > div {
+                @apply h-7 w-7 rounded-full m-1 flex justify-center items-center p-1 transition duration-150;
+
+                &:hover {
+                  @apply bg-[#191919];
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @layer components {
   .singleMovieCard {
-    @apply max-h-56;
+    @apply h-32 min-w-[15.3rem]  cursor-pointer rounded overflow-hidden inline-block mr-[0.355rem] shadow-lg;
 
     .cardImageBlock {
-      @apply h-16 xs:h-24 sm:h-28 md:h-44 lg:h-56 xl:h-60 min-h-fit w-[11vw] xs:w-[12vw] sm:w-[10vw] md:w-[13.5vw] lg:w-[13.5vw] xl:w-[15vw] cursor-pointer overflow-hidden relative;
+      @apply lg:h-32 lg:w-[15.3rem] overflow-hidden relative;
 
       .cardImage {
-        @apply h-full w-full object-cover hover:scale-[1.08] ease-in duration-500;
+        @apply h-full w-full object-cover;
       }
-      &.mouseOver {
-        @apply h-80 w-[18vw] transition-all ease-in-out duration-[30ms]
+    }
+
+    // hovered on: singlMovieCard
+    &:hover {
+      .moviePreview_block {
+        @apply scale-110 opacity-100 visible absolute z-10  top-[-59%] -translate-x-5 rounded-lg shadow-lg overflow-hidden;
+      }
+    }
+
+    .moviePreview_block {
+      @apply lg:h-[18rem] lg:w-[18rem] opacity-0 invisible transition duration-300 delay-500 ease-in-out scale-0 shadow-lg rounded-lg bg-[#191919];
+
+      .previewImageBlock {
+        @apply lg:h-[60%] lg:w-full overflow-hidden relative;
+
+        .cardImage {
+          @apply h-full w-full object-cover;
+        }
+      }
+
+      .previewContents {
+        @apply mt-4 px-2 flex justify-between items-center;
+
+        .buttonsBlock {
+          @apply flex items-center;
+
+          .playIcon {
+            @apply text-black;
+          }
+          .addMyListIcon {
+            @apply h-6 w-6 font-semibold;
+          }
+
+          .reacts {
+            .reactsExpansion {
+              @apply hidden transition duration-1000 delay-1000;
+            }
+
+            &:hover {
+              .reactsExpansion {
+                @apply block scale-x-100 absolute z-10 rounded-3xl bg-[#232222] shadow-lg drop-shadow-md p-[0.15rem];
+
+                .reacts2 {
+                  @apply flex justify-between relative;
+
+                  .likeOverlap {
+                    @apply absolute right-[15px] top-[11px] z-10;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .episodes_info {
+          @apply h-8 w-8 rounded-full flex justify-center items-center bg-[#343131] border-2 border-[#787676] transition duration-150;
+
+          &:hover {
+            @apply border-white;
+          }
+        }
       }
     }
   }

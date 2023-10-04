@@ -2,11 +2,14 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useForm } from "../hooks/useForm";
-import { checkLists, formInputService } from "../utilities/utilities";
-import { formInputType } from "../utilities/types";
-import FormInputComponent from "../components/sharedComponent/FormInputComponent";
-import CheckBox from "../components/sharedComponent/CheckBox";
+import { useForm } from "../../hooks/useForm";
+import { formInputService } from "../../utilities/utilities";
+import FormInputComponent from "../../components/sharedComponent/FormInputComponent";
+// import { useForm } from "../hooks/useForm";
+// import { checkLists, formInputService } from "../utilities/utilities";
+// import { formInputType } from "../utilities/types";
+// import FormInputComponent from "../components/sharedComponent/FormInputComponent";
+// import CheckBox from "../components/sharedComponent/CheckBox";
 
 const Login = () => {
   const {
@@ -53,7 +56,7 @@ const Login = () => {
         </form>
 
         <div className="formBottomBlock">
-          <div className="rememberMe">
+          {/* <div className="rememberMe">
             {checkLists.map((list, i) => (
               <>
                 <CheckBox
@@ -66,7 +69,7 @@ const Login = () => {
                 <span className=""> {list?.title}</span>
               </>
             ))}
-          </div>
+          </div> */}
 
           <div className="forgotPassword">
             <Link href="#">Forgot password?</Link>

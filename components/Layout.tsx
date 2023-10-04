@@ -19,7 +19,7 @@ const Layout = ({ children }: childrenType) => {
   // );
   return (
     <>
-      <TopHeader />
+     { true && <TopHeader />}
       <main>{children}</main>
       {/* <Footer/> */}
     </>
