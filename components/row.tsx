@@ -12,13 +12,11 @@ type propsType = {
 
 const Row = ({ movies }: propsType) => {
   const [isMouseEnter, setIsMouseEnter] = useState<boolean>(false);
-  const [isRightArrowClicked, setIsRightArrowClicked] =
-    useState<boolean>(false);
+  const [isRightArrowClicked, setIsRightArrowClicked] = useState<boolean>(false);
   const [isLeftArrowClicked, setIsLeftArrowClicked] = useState<boolean>(false);
 
   const [isMoved, setIsMoved] = useState<boolean>(false);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [isImageLoading, setIsImageLoading] = useState<boolean>(false);
 
   // handle slider functionalities:
   const hanldeSlider = (direction: string) => {
@@ -33,11 +31,6 @@ const Row = ({ movies }: propsType) => {
     }
   };
 
-  const handleImageLoading = (isLoading: boolean) => {
-    setIsImageLoading(isLoading);
-  };
-
-  // console.log("💛isImageLoading:", isImageLoading);
   return (
     <div
       className={`row_wrapper `}
@@ -46,9 +39,7 @@ const Row = ({ movies }: propsType) => {
       onMouseLeave={() => setIsMouseEnter(false)}
     >
       <div className="row_title_block">
-        <h1 className={`movieTitle `}>
-          {capitalizeFirstLetter(movies[0])}
-        </h1>
+        <h1 className={`movieTitle `}>{capitalizeFirstLetter(movies[0])}</h1>
       </div>
 
       <div className={`rowSlider`}>
@@ -71,19 +62,16 @@ const Row = ({ movies }: propsType) => {
           ref={sliderRef}
         >
           <div className="movieItems">
-            {movies[1]
-              .slice(0)
-              .map((singleMovieCard: Movie, index: number) => (
-                <>
-                  <SingleMovieCard
-                    key={singleMovieCard?.id}
-                    singleMovieCard={singleMovieCard}
-                    indexNumber={index}
-                    movieType={movies[0]}
-                    // handleImageLoading={handleImageLoading}
-                  />
-                </>
-              ))}
+            {movies[1].slice(0).map((singleMovieCard: Movie, index: number) => (
+              <>
+                <SingleMovieCard
+                  key={singleMovieCard?.id}
+                  singleMovieCard={singleMovieCard}
+                  indexNumber={index}
+                  movieType={movies[0]}
+                />
+              </>
+            ))}
           </div>
         </div>
         {/* movie collections */}

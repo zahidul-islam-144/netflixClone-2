@@ -4,6 +4,14 @@ All the codes are kept as a backup in this textFile for further purposes(hints a
 
 */
 
+// package.json-start
+"react-player": "^2.13.0",
+"react-redux": "^8.0.4",
+"redux": "^4.2.0",
+"redux-devtools-extension": "^2.13.9",
+"redux-thunk": "^2.4.1",
+// package.json-end
+
 
 
 // import type { NextPage } from "next";
@@ -450,3 +458,64 @@ export default SingleMovieCard;
     }
   }
 }
+
+
+
+/////////////
+
+import React, { FC, ReactNode, RefObject, useEffect, useRef } from "react";
+import { useTooltip } from "../../hooks/useToolTips";
+
+type toolTipPropsType = {
+  children: ReactNode;
+  elementRef: RefObject<HTMLElement>;
+};
+
+const ToolTips: FC<toolTipPropsType> = ({
+  children,
+  elementRef
+}) => {
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const {
+    position,
+    isVisible,
+    onMouseEnter,
+    onMouseLeave,
+  } = useTooltip({
+    ref: elementRef,
+    tooltipRef
+  });
+
+  useEffect(() => {
+    const element = elementRef?.current;
+
+    if (element) {
+      element.addEventListener("mouseenter", onMouseEnter);
+      element.addEventListener("mouseleave", onMouseLeave);
+    }
+    console.log("💛elementRef:", elementRef, position)
+    // cleans up event listeners by removing them when the component is unmounted
+    return () => {
+      if (element) {
+        element.removeEventListener("mouseenter", onMouseEnter);
+        element.removeEventListener("mouseleave", onMouseLeave);
+      }
+    };
+  }, [elementRef, onMouseEnter, onMouseLeave]);
+
+  if (!isVisible) {
+    return null;
+  }
+  
+  return (
+    <div
+      className="toolTip_main"
+      ref={tooltipRef}
+      style={{ top: position?.top, left: position?.left }}
+    >
+      <div className={`toolTip_contents `}>{children}</div>
+    </div>
+  );
+};
+
+export default ToolTips;

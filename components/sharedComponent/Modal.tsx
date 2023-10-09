@@ -10,18 +10,21 @@ type props = {
 
 const Modal = ({ open, handleClose }: props) => {
   const baseURL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
+  
   const { targetMovie, movieObjects } = useStorage();
 
   const filteredArrayData:any = Object.entries(movieObjects).filter(
     (item: any) => item[0] === targetMovie?.movieType
   );
   const getIndexOfFilteredArrayData:any = filteredArrayData;
-  const filteredArrayData2:any = getIndexOfFilteredArrayData[0][1].filter((item:any) => item?.id === targetMovie?.id)
+  const filteredArrayData2:any = getIndexOfFilteredArrayData[0][1]?.filter((item:any) => item?.id === targetMovie?.id)
 
 
   const imageSrc = `${baseURL}${
     filteredArrayData2[0]?.backdrop_path || filteredArrayData2[0]?.poster_path
   }`;
+
+
   return (
     <div className="modal_wrapper overlay disableCaret" aria-hidden={!open}>
       <div className={`modal_main ${open ? "" : "hidden"}`}>

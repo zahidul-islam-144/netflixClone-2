@@ -12,11 +12,12 @@ import Movies from "../components/movies";
 import Modal from "../components/sharedComponent/Modal";
 import { useEffect, useState } from "react";
 import { BsHandIndexFill } from "react-icons/bs";
+import ToolTips from "../components/sharedComponent/ToolTips";
 
 const Home = ({ netflixOriginals, movieObjects }: MoviePropsType) => {
   const { setMovieObjects, isOpen, setIsOpen } = useStorage();
   setMovieObjects(movieObjects);
-  // console.log("💛 movieObjects:", movieObjects)
+  console.log("💛 movieObjects:", movieObjects)
 
   const handleClose = (value:boolean, ...extra:any):void => {
     setIsOpen(value)
@@ -30,6 +31,7 @@ const Home = ({ netflixOriginals, movieObjects }: MoviePropsType) => {
     }
 
     return () =>  document.getElementsByTagName("body")[0]?.classList.remove("disabled_body_scroll");
+
   // if(isOpen === true){
   //   document.body.classList.toggle("disabled_body_scroll", isOpen)
   // }

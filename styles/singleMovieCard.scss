@@ -58,8 +58,9 @@
     // hovered on: singlMovieCard
     &:hover {
       .moviePreview_block {
-        @apply scale-110 opacity-100 visible absolute z-10  top-[-59%] -translate-x-5 rounded-lg shadow-lg overflow-hidden;
+        @apply scale-110 opacity-100 visible absolute z-10  top-[-59%] -translate-x-5 rounded-lg shadow-lg ;
       }
+      // overflow-hidden
     }
 
     .moviePreview_block {
@@ -74,7 +75,7 @@
       }
 
       .previewContents {
-        @apply mt-4 px-2 flex justify-between items-center;
+        @apply mt-4 px-2 flex justify-between items-center ;
 
         .buttonsBlock {
           @apply flex items-center;
@@ -113,6 +114,14 @@
           &:hover {
             @apply border-white;
           }
+        }
+      }
+
+      .movie_rating{
+        @apply ml-3 mt-2 text-white font-semibold text-base;
+
+        & > span {
+          @apply p-1 border border-[#282727bf] ml-1 text-sm drop-shadow-lg;
         }
       }
     }

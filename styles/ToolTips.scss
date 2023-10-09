@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+
+@layer components {
+    .toolTip_main {
+        @apply max-w-[136px] w-36 min-h-[30px] p-1 rounded-lg bg-white absolute z-10;
+
+        &.myList_tp{
+            @apply top-[50%];
+        }
+
+        &.episodes_info_tp{
+            @apply top-[50%] left-[67%];
+        }
+
+        &.remove_tp{
+            @apply top-[50%] left-[27%];
+        }
+
+        &.dislike_tp{
+            @apply bottom-[138%] -left-[48%]
+        }
+
+        &.like1_tp{
+            @apply bottom-[138%] -left-[15%]
+        }
+
+        &.like2_tp{
+            @apply bottom-[138%] left-[18%]
+        }
+
+        .toolTip_contents{
+            @apply  text-black text-center;
+        }
+
+        &:before {
+            @apply content-[''] h-3 w-3 rotate-45 bg-white absolute block -bottom-[0.35rem] left-[4rem];
+        }
+    }
+}
